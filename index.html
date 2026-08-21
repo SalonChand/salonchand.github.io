@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salon Sodari — Full-Stack Web Developer, Kathmandu</title>
+<meta name="description" content="Full-stack web developer and computer engineering undergraduate in Kathmandu. I build and deploy production web applications: e-commerce, school management systems, community PWAs and personal tooling.">
+<meta name="theme-color" content="#EDEFF3">
+<meta property="og:title" content="Salon Sodari — Full-stack developer">
+<meta property="og:description" content="Software that goes into service and stays there. Fifteen shipped projects from Kathmandu, Nepal.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EDEFF3;
+  --raise:#F7F8FA;
+  --ink:#12161C;
+  --ink-2:#5B6472;
+  --ink-3:#8B94A3;
+  --rule:#D5DAE1;
+  --rule-2:#E4E7EC;
+  --live:#177A4B;
+  --mark:#2B44E0;
+  --shadow:0 1px 2px rgba(18,22,28,.05);
+}
+html[data-theme="dark"]{
+  --paper:#10141A;
+  --raise:#171C24;
+  --ink:#E7EAEF;
+  --ink-2:#98A2B1;
+  --ink-3:#6B7484;
+  --rule:#262D38;
+  --rule-2:#1E242D;
+  --live:#3DC57F;
+  --mark:#8AA0FF;
+  --shadow:0 1px 2px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Familjen Grotesk",system-ui,sans-serif;
+  font-size:17px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.mono{font-family:"DM Mono","SFMono-Regular",ui-monospace,monospace;font-weight:400}
+a{color:var(--mark);text-decoration:none;text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--mark);outline-offset:3px;border-radius:2px}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+
+/* header */
+.bar{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--paper) 85%,transparent);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--rule-2);
+}
+.bar-in{display:flex;align-items:center;justify-content:space-between;height:58px;gap:20px}
+.sig{font-weight:600;letter-spacing:-.02em;font-size:16px;white-space:nowrap}
+.sig span{color:var(--ink-3);font-weight:400}
+.nav{display:flex;align-items:center;gap:22px}
+.nav a{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.nav a:hover{color:var(--ink);text-decoration:none}
+.tog{
+  display:flex;align-items:center;gap:7px;cursor:pointer;
+  background:none;border:1px solid var(--rule);border-radius:999px;
+  padding:5px 11px 5px 9px;color:var(--ink-2);
+  font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.06em;
+}
+.tog:hover{color:var(--ink);border-color:var(--ink-3)}
+.tog i{width:8px;height:8px;border-radius:50%;background:var(--ink);display:block}
+html[data-theme="dark"] .tog i{background:none;border:1.5px solid var(--ink)}
+
+/* hero */
+.hero{padding:clamp(64px,13vw,132px) 0 clamp(40px,7vw,64px)}
+.eyebrow{
+  font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:26px;
+}
+h1{
+  font-size:clamp(2.5rem,7.2vw,5rem);
+  line-height:.99;letter-spacing:-.035em;font-weight:600;
+  max-width:16ch;
+}
+h1 em{font-style:italic;font-weight:500}
+.lede{
+  margin-top:26px;max-width:56ch;font-size:clamp(17px,1.9vw,19.5px);
+  color:var(--ink-2);line-height:1.5;
+}
+.lede b{color:var(--ink);font-weight:500}
+.strip{
+  margin-top:44px;display:flex;flex-wrap:wrap;gap:10px 30px;
+  padding-top:20px;border-top:1px solid var(--rule);
+}
+.stat{display:flex;align-items:baseline;gap:9px;font-family:"DM Mono",monospace;font-size:12.5px;letter-spacing:.04em}
+.stat b{font-weight:500;color:var(--ink);font-size:14px}
+.stat span{color:var(--ink-3);text-transform:uppercase;font-size:11px;letter-spacing:.1em}
+
+/* section frame */
+.sec{padding:clamp(52px,8vw,84px) 0}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(1.4rem,3vw,1.85rem);font-weight:600;letter-spacing:-.02em}
+.sec-note{font-family:"DM Mono",monospace;font-size:12px;color:var(--ink-3);letter-spacing:.03em;max-width:42ch}
+
+/* board */
+.board{border-top:1px solid var(--rule)}
+.row{border-bottom:1px solid var(--rule-2)}
+.row-btn{
+  width:100%;display:grid;align-items:center;gap:18px;
+  grid-template-columns:104px minmax(0,1fr) minmax(0,1.45fr) 152px 22px;
+  padding:19px 12px 19px 4px;margin:0;
+  background:none;border:0;border-radius:7px;cursor:pointer;
+  text-align:left;color:inherit;font:inherit;
+  transition:background .18s ease;
+}
+.row-btn:hover{background:var(--raise)}
+.status{display:flex;align-items:center;gap:8px;font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.dot{width:8px;height:8px;border-radius:50%;flex:none}
+.s-live .dot{background:var(--live);box-shadow:0 0 0 3px color-mix(in srgb,var(--live) 16%,transparent)}
+.s-live{color:var(--live)}
+.s-running .dot{background:none;border:1.5px solid var(--live)}
+.s-paused .dot{background:var(--ink-3);opacity:.5}
+.p-name{font-size:17.5px;font-weight:500;letter-spacing:-.015em}
+.p-line{color:var(--ink-2);font-size:15px;line-height:1.4}
+.p-end{font-family:"DM Mono",monospace;font-size:12px;color:var(--ink-3);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chev{width:22px;height:22px;position:relative;justify-self:end}
+.chev::before,.chev::after{
+  content:"";position:absolute;top:10px;left:5px;width:11px;height:1.5px;
+  background:var(--ink-3);border-radius:1px;transition:transform .25s ease;
+}
+.chev::after{transform:rotate(90deg)}
+.row-btn[aria-expanded="true"] .chev::after{transform:rotate(0deg)}
+.row-btn[aria-expanded="true"]{background:var(--raise)}
+.panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.row-btn[aria-expanded="true"]+.panel{grid-template-rows:1fr}
+.panel-in{overflow:hidden;visibility:hidden;transition:visibility 0s .3s}
+.row-btn[aria-expanded="true"]+.panel .panel-in{visibility:visible;transition-delay:0s}
+.panel-pad{
+  display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);
+  gap:32px;padding:4px 12px 34px 126px;
+}
+.panel p{color:var(--ink-2);font-size:15.5px;line-height:1.6;max-width:62ch}
+.panel h4{
+  font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:400;margin-bottom:10px;
+}
+.notable{list-style:none;margin-top:22px}
+.notable li{
+  position:relative;padding-left:18px;color:var(--ink-2);font-size:15px;
+  line-height:1.5;margin-bottom:8px;
+}
+.notable li::before{content:"";position:absolute;left:0;top:10px;width:7px;height:1.5px;background:var(--ink-3)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{
+  font-family:"DM Mono",monospace;font-size:11px;color:var(--ink-2);
+  border:1px solid var(--rule);border-radius:5px;padding:3px 8px;white-space:nowrap;
+}
+.plinks{display:flex;flex-wrap:wrap;gap:16px;margin-top:22px}
+.plinks a{font-family:"DM Mono",monospace;font-size:12.5px;letter-spacing:.02em}
+
+/* compact grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:1px;background:var(--rule-2);border:1px solid var(--rule-2);border-radius:8px;overflow:hidden}
+.cell{background:var(--paper);padding:22px 20px 20px;display:flex;flex-direction:column;gap:8px}
+.cell .status{margin-bottom:2px}
+.cell h3{font-size:16px;font-weight:500;letter-spacing:-.01em}
+.cell p{color:var(--ink-2);font-size:14.5px;line-height:1.45;flex:1}
+.cell a{font-family:"DM Mono",monospace;font-size:12px}
+
+/* stack */
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:34px 40px}
+.stack h4{
+  font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:400;
+  padding-bottom:9px;margin-bottom:13px;border-bottom:1px solid var(--rule);
+}
+.stack ul{list-style:none}
+.stack li{font-size:15.5px;color:var(--ink-2);line-height:1.75}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:44px}
+.about p{font-size:17px;line-height:1.62;color:var(--ink-2);margin-bottom:18px;max-width:60ch}
+.about p b{color:var(--ink);font-weight:500}
+.me{width:118px;height:118px;border-radius:9px;display:block;margin-bottom:24px;
+  border:1px solid var(--rule);filter:grayscale(1);transition:filter .35s ease}
+.me:hover{filter:none}
+html[data-theme="dark"] .me{filter:grayscale(1) brightness(.88)}
+html[data-theme="dark"] .me:hover{filter:brightness(.96)}
+.facts{border-top:1px solid var(--rule);padding-top:16px}
+.fact{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--rule-2);font-size:14.5px}
+.fact span:first-child{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);padding-top:3px;white-space:nowrap}
+.fact span:last-child{text-align:right;color:var(--ink-2)}
+
+/* contact */
+.contact{padding:clamp(56px,9vw,96px) 0 clamp(40px,6vw,64px);border-top:1px solid var(--rule)}
+.contact h2{font-size:clamp(1.9rem,5vw,3.1rem);font-weight:600;letter-spacing:-.03em;line-height:1.06;max-width:18ch}
+.contact .lede{margin-top:20px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:"DM Mono",monospace;font-size:13px;letter-spacing:.02em;
+  padding:11px 18px;border-radius:7px;border:1px solid var(--rule);
+  color:var(--ink);background:var(--raise);transition:border-color .18s ease,transform .18s ease;
+}
+.btn:hover{border-color:var(--ink-3);text-decoration:none;transform:translateY(-1px)}
+.btn-1{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn-1:hover{border-color:var(--ink)}
+footer{border-top:1px solid var(--rule-2);padding:22px 0 40px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:"DM Mono",monospace;font-size:11.5px;color:var(--ink-3);letter-spacing:.03em}
+
+/* boot */
+.boot{opacity:0;transform:translateY(8px);animation:in .5s cubic-bezier(.2,.7,.3,1) forwards;animation-delay:calc(var(--i,0) * 45ms)}
+@keyframes in{to{opacity:1;transform:none}}
+
+@media(max-width:860px){
+  .row-btn{grid-template-columns:96px minmax(0,1fr) 22px;gap:8px 14px;padding:16px 8px 16px 2px}
+  .chev{grid-column:3;grid-row:1}
+  .p-line{grid-column:2/4;font-size:14.5px}
+  .p-end{grid-column:1/4;text-align:left;font-size:11.5px}
+  .panel-pad{grid-template-columns:1fr;gap:24px;padding:0 8px 28px 2px}
+  .about{grid-template-columns:1fr;gap:30px}
+}
+@media(max-width:620px){
+  body{font-size:16.5px}
+  .nav a{display:none}
+  h1{max-width:14ch}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .boot{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap bar-in">
+    <div class="sig">Salon Sodari <span>/ Kathmandu</span></div>
+    <nav class="nav">
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <button class="tog" id="tog" aria-label="Switch colour theme"><i></i><span id="tog-l">LIGHT</span></button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <div class="eyebrow boot" style="--i:0">Full-stack web developer · Computer engineering undergraduate</div>
+    <h1 class="boot" style="--i:1">I build software that goes into service and <em>stays there</em>.</h1>
+    <p class="lede boot" style="--i:2">John Dewey H.S. in Kathmandu runs its marksheets on my code. A resort takes table orders through it. A fashion label sells through it. <b>Most of it I built alone</b> — brief, design, build, deploy, and the phone call when something breaks at nine at night.</p>
+    <div class="strip">
+      <div class="stat boot" style="--i:3"><b id="n-total">—</b><span>projects shipped</span></div>
+      <div class="stat boot" style="--i:4"><b id="n-live">—</b><span>public urls</span></div>
+      <div class="stat boot" style="--i:5"><b id="n-run">—</b><span>running now</span></div>
+      <div class="stat boot" style="--i:6"><b id="clock">—</b><span>ktm local</span></div>
+    </div>
+  </section>
+
+  <section class="wrap sec" id="work">
+    <div class="sec-head">
+      <h2>Selected work</h2>
+      <p class="sec-note">Open a row for what it does and what was hard about it.</p>
+    </div>
+    <div class="board" id="board"></div>
+  </section>
+
+  <section class="wrap sec" id="more">
+    <div class="sec-head">
+      <h2>Also shipped</h2>
+      <p class="sec-note">Client sites, tools and hardware.</p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="wrap sec" id="stack">
+    <div class="sec-head"><h2>Stack</h2></div>
+    <div class="stack">
+      <div>
+        <h4>Frontend</h4>
+        <ul><li>JavaScript (ES6+)</li><li>React 19, Vite</li><li>HTML5, CSS3, Tailwind</li><li>Three.js</li><li>Progressive Web Apps</li><li>Mobile-first, responsive</li></ul>
+      </div>
+      <div>
+        <h4>Backend &amp; data</h4>
+        <ul><li>Node.js, Express 5</li><li>REST APIs</li><li>MySQL, Sequelize</li><li>SQLite (node:sqlite)</li><li>Firebase Auth &amp; RTDB</li><li>Socket.IO, WebSocket, JWT</li></ul>
+      </div>
+      <div>
+        <h4>Deployment</h4>
+        <ul><li>Git &amp; GitHub</li><li>Vercel, Render</li><li>GitHub Pages</li><li>pm2, Windows Scheduled Tasks</li><li>PWABuilder, Capacitor</li><li>PowerShell</li></ul>
+      </div>
+      <div>
+        <h4>Also</h4>
+        <ul><li>Python, Raspberry Pi, ffmpeg</li><li>Security hardening: helmet, rate limiting, CORS</li><li>UI/UX and graphic design</li><li>Teaching, 3 years</li><li>English, Nepali (Devanagari)</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap sec" id="about">
+    <div class="sec-head"><h2>About</h2></div>
+    <div class="about">
+      <div>
+        <p>I’m a computer engineering undergraduate at Himalayan Whitehouse International College in Kathmandu, graduating in 2027. I taught for three years before this — Computer Science and Mathematics, lesson materials and all — and I think it shows in what I build: nearly every project has an admin panel that someone non-technical has to survive on their own, so I spend real time on the boring screens.</p>
+        <p>I work on Windows, deploy to GitHub Pages, Vercel or the client's own machine, and I test on the mid-range Android phones my users actually own. <b>I'd rather ship something plain that runs than something clever that needs babysitting</b> — a fair amount of my work is going back and replacing the elegant version with the reliable one.</p>
+        <p>Open to internships and freelance work: front-end, full-stack, or the unglamorous integration work in between.</p>
+      </div>
+      <div>
+        <img class="me" src="salon.jpg" alt="Salon Sodari" width="252" height="252">
+        <div class="facts">
+          <div class="fact"><span>Based</span><span>Kalanki, Kathmandu (UTC+5:45)</span></div>
+          <div class="fact"><span>Degree</span><span>BE Computer Engineering, 2027</span></div>
+          <div class="fact"><span>College</span><span>Himalayan Whitehouse Int’l</span></div>
+          <div class="fact"><span>Before this</span><span>3 years teaching, freelance design</span></div>
+          <div class="fact"><span>Works</span><span>Solo, or as the whole build team</span></div>
+          <div class="fact"><span>Status</span><span>Open to work</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap contact" id="contact">
+    <h2>Have something that needs to run on Monday?</h2>
+    <p class="lede">Send me the problem and roughly when you need it. I'll tell you honestly whether I'm the right person for it.</p>
+    <div class="cta">
+      <a class="btn btn-1" href="mailto:sodarisalon26@gmail.com">sodarisalon26@gmail.com</a>
+      <a class="btn" href="tel:+9779742590718">+977 974-2590718</a>
+      <a class="btn" href="https://github.com/SalonChand" target="_blank" rel="noopener">github.com/SalonChand</a>
+      <a class="btn" href="cv.pdf" download>Download CV</a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="foot">
+    <span>Salon Sodari — built from scratch, no framework</span>
+    <span id="year">2026</span>
+  </div>
+</footer>
+
+<script>
+const P=[
+{t:"f",n:"The Atelier",s:"live",l:"Luxury fashion storefront, and the admin console behind it.",e:"theatelier-ta.com",url:"https://theatelier-ta.com",repo:"https://github.com/SalonChand/the-atelier",
+ d:"A storefront on GitHub Pages with Firebase Realtime Database doing the work of a backend. The shop is the visible half; the admin console is the real project. It runs the order pipeline, prints packing slips with scannable QR codes in bulk, sorts customers into seven segments, and drives a campaign engine where a discount knows what scope it applies to.",
+ k:["A 3D garment customiser with UV texture painting, so a buyer sees their own print on the piece before ordering","A weekly digest email that dedupes on ISO week, so a late run can\u2019t send the same summary twice","The dome gallery rebuilt in CSS 3D after Three.js proved too heavy on mid-range phones","Scope-aware discounts, so a campaign can\u2019t quietly stack itself onto the wrong products"],
+ st:["JavaScript","Firebase RTDB","Three.js","GitHub Pages"]},
+
+{t:"f",n:"JD Marksheets",s:"running",l:"The school management system John Dewey H.S. runs on.",e:"private · :4100",repo:"https://github.com/SalonChand/JD-Marksheets",
+ d:"Express 5 on Node\u2019s built-in SQLite, serving one application to five different kinds of user: admins, grade teachers, subject teachers, students and guardians each get their own portal, with strict per-role data isolation between them. Digital marksheets, class timetables, a notice board, multi-child linking for guardians with more than one child at the school, and a Today at School dashboard. Leave requests fall back to SMS through Sparrow SMS or Twilio when a guardian isn\u2019t in the app.",
+ k:["An in-app notification inbox with unread badges, backed by an Android companion app whose foreground service and boot receiver keep alerts arriving after a restart","Installs as an offline-capable PWA on iOS and Android from the same codebase","Auto-starts on the school\u2019s Windows machine through a Scheduled Task, so nobody has to remember to launch it"],
+ st:["Express 5","node:sqlite","PWA","Android"]},
+
+{t:"f",n:"JARVIS",s:"running",l:"A personal assistant that boots with the laptop and can actually do things.",e:"private · local",
+ d:"Node, Express and SQLite behind a registry of 33 tools the model can call — mail, calendar, files, shell, search. Memory is BM25 retrieval over past conversations rather than a vector database, which keeps it fast, local and free of a second service to keep alive. The PWA dashboard updates over WebSocket.",
+ k:["33-tool registry with a single schema, so adding a capability is one file","BM25 memory instead of embeddings — no model to load, no index to rebuild","Runs headless from a Windows Scheduled Task at login"],
+ st:["Node","Express","SQLite","WebSocket","PWA"]},
+
+{t:"f",n:"Karnali Riverside Resort",s:"running",l:"Bookings, restaurant orders and the staff console for a resort.",e:"private · :3000",
+ d:"One single-page app for guests, one for staff. Guests scan a QR code at the table and order without installing anything; the kitchen and the front desk work the same queue. Rooms, bookings, menu and staff are managed from an admin console built for people who are not going to read a manual.",
+ k:["The QR generator resolves the phone-reachable host itself and refuses to print codes pointing at localhost — otherwise you only find out after the codes are on the tables","A version handshake banner, so a stale tab tells the waiter instead of silently failing"],
+ st:["Node","Express","SQLite","Vanilla JS SPA"]},
+
+{t:"f",n:"LocalAid Nepal",s:"paused",l:"Community help requests, with an emergency SOS built in.",e:"in development",repo:"https://github.com/SalonChand/localaid-nepal",
+ d:"React 19 and Vite on the front with Socket.io for live updates, Express 5, Sequelize and MySQL behind JWT auth. Anyone can post a help request and watch it get picked up; the SOS path skips the form entirely, because an emergency is the worst possible time to ask someone to fill in fields. Rebuilt mobile-first after testing on real phones \u2014 bottom tab bar, full-screen auth, a profile surface that doesn\u2019t assume a mouse.",
+ k:["The API base URL resolves from the browser\u2019s own hostname, so one build works on the laptop and on a phone across the same Wi-Fi","Packaged for Google Play through PWABuilder, and prepared for iOS through Capacitor"],
+ st:["React 19","Vite","Tailwind","Socket.IO","Express","MySQL"]},
+
+{t:"f",n:"Eco Tour Nepal",s:"paused",l:"Two marketplaces in one \u2014 tour bookings and handicraft sales.",e:"in development",repo:"https://github.com/SalonChand/eco-tour-nepal",
+ d:"A React and Vite front end over a Node, Express and MySQL API, running tour bookings and a handicraft shop side by side, with real-time community chat, direct messages and a helpdesk widget. The part I\u2019d actually point at, though, is the security pass I did afterwards.",
+ k:["JWT authentication moved onto the Socket.io handshake, replacing module-level sockets that connected before anyone had logged in","Helmet, rate limiting and scoped CORS added across the API","Connection pooling, once it was clear that connections were the ceiling"],
+ st:["React","Vite","Socket.IO","Express","MySQL"]},
+
+{t:"f",n:"Super App",s:"live",l:"Posts, stories and chat, built to survive a mid-range phone.",e:"super-app-rust-one.vercel.app",url:"https://super-app-rust-one.vercel.app",repo:"https://github.com/SalonChand/super-app",
+ d:"React and Node with MySQL, front end on Vercel and API on Render. Posts, image galleries, stories and chat. Most of the work I\u2019m proud of here is unglamorous \u2014 fixing the things that only break on the devices people actually own.",
+ k:["100dvh throughout, so mobile browser chrome stops eating the layout","Fullscreen story viewer and overlays moved into React portals to escape transformed ancestors","Rewrote an image carousel that was calling hooks inside an IIFE and failing at random"],
+ st:["React","Node","MySQL","Vercel + Render"]},
+
+{t:"f",n:"Launcher",s:"running",l:"Run a Windows laptop from an iPhone on the same Wi-Fi.",e:"private · :4000",
+ d:"An Express server on the laptop and a PWA on the phone. The webcam streams as MJPEG through ffmpeg at roughly 15fps, the microphone streams alongside it, and there's a file browser, a process monitor, motion detection and server-side MP4 recording. It also works as a presentation clicker, which is what I actually use it for.",
+ k:["WebRTC through MediaMTX worked beautifully until the laptop changed networks; MJPEG over the LAN was less elegant and more reliable, so it stayed","PIN gate that persists, because typing a PIN every time meant I stopped using it"],
+ st:["Node","Express","ffmpeg","PWA"]},
+
+{t:"c",n:"Train With Mausam",s:"live",l:"Personal training site on a monochrome card system. Built for my brother.",e:"trainwithmausam.com",url:"https://trainwithmausam.com"},
+{t:"c",n:"Pariwartan",s:"live",l:"Band site with a sourced discography of 13 releases and Devanagari typesetting.",e:"salonchand.github.io/pariwartan",url:"https://salonchand.github.io/pariwartan"},
+{t:"c",n:"Jacob Unisex Salon",s:"live",l:"Bookings with Firebase sync, plus an admin view of revenue per stylist.",e:"salonchand.github.io/Jacob-Unisex-Salon",url:"https://salonchand.github.io/Jacob-Unisex-Salon"},
+{t:"c",n:"John Dewey H.S.",s:"live",l:"Site for the school that also runs JD Marksheets, with an in-browser Python runner (Pyodide) and a published-content layer so staff can edit from any device.",e:"github.com/SalonChand/john-dewey-website",url:"https://github.com/SalonChand/john-dewey-website"},
+{t:"c",n:"VAAV Wellbeing",s:"live",l:"Single-file wellbeing site — glass header, breathing orb hero, no build step at all.",e:"static site"},
+{t:"c",n:"Motorcycle HUD",s:"paused",l:"Raspberry Pi speed and navigation HUD, mirror-flipped for a helmet visor, streaming at 10Hz over WebSocket.",e:"hardware · Python"},
+{t:"c",n:"LAN File Manager",s:"running",l:"File manager PWA for the local network, pm2-managed so it comes back after a reboot.",e:"private · :4500"}
+];
+
+const LB={live:"Live",running:"Running",paused:"Paused"};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const st=s=>`<span class="status s-${s}"><i class="dot"></i>${LB[s]}</span>`;
+
+const board=document.getElementById("board");
+board.innerHTML=P.filter(p=>p.t==="f").map((p,i)=>{
+  const links=[p.url?`<a href="${p.url}" target="_blank" rel="noopener">Open site ↗</a>`:"",
+               p.repo?`<a href="${p.repo}" target="_blank" rel="noopener">Source ↗</a>`:""].filter(Boolean).join("");
+  return `<article class="row boot" style="--i:${i+7}">
+    <button class="row-btn" aria-expanded="false">
+      ${st(p.s)}
+      <span class="p-name">${esc(p.n)}</span>
+      <span class="p-line">${esc(p.l)}</span>
+      <span class="p-end">${esc(p.e)}</span>
+      <span class="chev" aria-hidden="true"></span>
+    </button>
+    <div class="panel"><div class="panel-in"><div class="panel-pad">
+      <div>
+        <p>${esc(p.d)}</p>
+        <ul class="notable">${p.k.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+      </div>
+      <div>
+        <h4>Built with</h4>
+        <div class="chips">${p.st.map(x=>`<span class="chip">${esc(x)}</span>`).join("")}</div>
+        ${links?`<div class="plinks">${links}</div>`:""}
+      </div>
+    </div></div></div>
+  </article>`;
+}).join("");
+
+document.getElementById("grid").innerHTML=P.filter(p=>p.t==="c").map(p=>
+  `<div class="cell">${st(p.s)}<h3>${esc(p.n)}</h3><p>${esc(p.l)}</p>${
+    p.url?`<a href="${p.url}" target="_blank" rel="noopener">${esc(p.e)} ↗</a>`:`<span class="p-end" style="text-align:left">${esc(p.e)}</span>`}</div>`).join("");
+
+board.addEventListener("click",e=>{
+  const b=e.target.closest(".row-btn");
+  if(!b)return;
+  const open=b.getAttribute("aria-expanded")==="true";
+  board.querySelectorAll('.row-btn[aria-expanded="true"]').forEach(o=>o.setAttribute("aria-expanded","false"));
+  b.setAttribute("aria-expanded",open?"false":"true");
+});
+
+document.getElementById("n-total").textContent=P.length;
+document.getElementById("n-live").textContent=P.filter(p=>p.url).length;
+document.getElementById("n-run").textContent=P.filter(p=>p.s==="running"||p.s==="live").length;
+document.getElementById("year").textContent=new Date().getFullYear();
+
+const fmt=new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Kathmandu",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false});
+const clock=document.getElementById("clock");
+const tick=()=>clock.textContent=fmt.format(new Date());
+tick();setInterval(tick,1000);
+
+const root=document.documentElement,tog=document.getElementById("tog"),togL=document.getElementById("tog-l");
+const set=m=>{root.dataset.theme=m;togL.textContent=m.toUpperCase();
+  document.querySelector('meta[name="theme-color"]').content=m==="dark"?"#10141A":"#EDEFF3";};
+set(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+tog.addEventListener("click",()=>set(root.dataset.theme==="dark"?"light":"dark"));
+</script>
+</body>
+</html>
