@@ -285,15 +285,15 @@ footer{border-top:1px solid var(--rule-2);padding-block:22px 40px}
     <div class="stack">
       <div>
         <h4>Frontend</h4>
-        <ul><li>JavaScript (ES6+)</li><li>React 19, Vite</li><li>HTML5, CSS3, Tailwind</li><li>Three.js</li><li>Progressive Web Apps</li><li>Mobile-first, responsive</li></ul>
+        <ul><li>JavaScript (ES6+)</li><li>React 19, Vite</li><li>Next.js</li><li>HTML5, CSS3, Tailwind</li><li>Three.js</li><li>Progressive Web Apps</li><li>Mobile-first, responsive</li></ul>
       </div>
       <div>
         <h4>Backend &amp; data</h4>
-        <ul><li>Node.js, Express 5</li><li>REST APIs</li><li>MySQL, Sequelize</li><li>SQLite (node:sqlite)</li><li>Firebase Auth &amp; RTDB</li><li>Socket.IO, WebSocket, JWT</li></ul>
+        <ul><li>Node.js, Express 5</li><li>REST APIs</li><li>MySQL, Prisma, Sequelize</li><li>SQLite (node:sqlite)</li><li>Firebase Auth &amp; RTDB</li><li>Socket.IO, WebRTC, JWT</li></ul>
       </div>
       <div>
         <h4>Deployment</h4>
-        <ul><li>Git &amp; GitHub</li><li>Vercel, Render</li><li>GitHub Pages</li><li>pm2, Windows Scheduled Tasks</li><li>PWABuilder, Capacitor</li><li>PowerShell</li></ul>
+        <ul><li>Git &amp; GitHub</li><li>Vercel, Render</li><li>Aiven MySQL, Supabase</li><li>GitHub Pages</li><li>pm2, Windows Scheduled Tasks</li><li>PWABuilder, Capacitor</li></ul>
       </div>
       <div>
         <h4>Also</h4>
@@ -355,6 +355,11 @@ const P=[
  k:["An in-app notification inbox with unread badges, backed by an Android companion app whose foreground service and boot receiver keep alerts arriving after a restart","Installs as an offline-capable PWA on iOS and Android from the same codebase","Auto-starts on the school\u2019s Windows machine through a Scheduled Task, so nobody has to remember to launch it"],
  st:["Express 5","node:sqlite","PWA","Android"]},
 
+{t:"f",n:"Milan",s:"live",l:"A dating app specified in full before a line of it was written.",e:"milan-five-topaz.vercel.app",url:"https://milan-five-topaz.vercel.app",repo:"https://github.com/SalonChand/milan",
+ d:"I wrote a 28-section technical specification for this before starting the build \u2014 schema, matching, messaging, safety and moderation \u2014 then worked through it in nine phases. React and Vite on the client, Express and Socket.IO behind it, MySQL through Prisma, WebRTC for video calls, and a separate React admin panel for moderation.",
+ k:["Specifying it in full first meant the build was execution rather than invention, and the schema didn\u2019t need rewriting halfway through","Runs entirely on free tiers: Vercel for the client, Render for the API, Aiven for MySQL, Supabase for uploads","Socket.IO handles the WebRTC signalling, so chat and video share one connection"],
+ st:["React","Vite","Express","Socket.IO","Prisma","MySQL","WebRTC"]},
+
 {t:"f",n:"JARVIS",s:"running",l:"A personal assistant that boots with the laptop and can actually do things.",e:"private · local",
  d:"Node, Express and SQLite behind a registry of 33 tools the model can call — mail, calendar, files, shell, search. Memory is BM25 retrieval over past conversations rather than a vector database, which keeps it fast, local and free of a second service to keep alive. The PWA dashboard updates over WebSocket.",
  k:["33-tool registry with a single schema, so adding a capability is one file","BM25 memory instead of embeddings — no model to load, no index to rebuild","Runs headless from a Windows Scheduled Task at login"],
@@ -375,10 +380,10 @@ const P=[
  k:["JWT authentication moved onto the Socket.io handshake, replacing module-level sockets that connected before anyone had logged in","Helmet, rate limiting and scoped CORS added across the API","Connection pooling, once it was clear that connections were the ceiling"],
  st:["React","Vite","Socket.IO","Express","MySQL"]},
 
-{t:"f",n:"Super App",s:"live",l:"Posts, stories and chat, built to survive a mid-range phone.",e:"super-app-rust-one.vercel.app",url:"https://super-app-rust-one.vercel.app",repo:"https://github.com/SalonChand/super-app",
- d:"React and Node with MySQL, front end on Vercel and API on Render. Posts, image galleries, stories and chat. Most of the work I\u2019m proud of here is unglamorous \u2014 fixing the things that only break on the devices people actually own.",
- k:["100dvh throughout, so mobile browser chrome stops eating the layout","Fullscreen story viewer and overlays moved into React portals to escape transformed ancestors","Rewrote an image carousel that was calling hooks inside an IIFE and failing at random"],
- st:["React","Node","MySQL","Vercel + Render"]},
+{t:"f",n:"Sangalo",s:"live",l:"A social platform, and the database migration that unblocked it.",e:"sangalo.vercel.app",url:"https://sangalo.vercel.app",repo:"https://github.com/SalonChand/sangalo",
+ d:"Next.js on the front, Node and Express behind it, MySQL 8 on Aiven. Feeds, profiles, posts and conversations, deployed across three services that each do one thing.",
+ k:["The feed query leans on json_arrayagg and correlated derived tables, which MariaDB 10.4 simply doesn\u2019t support \u2014 I moved the database to MySQL 8 rather than rewriting the queries into something slower to work around it","Split deploy that keeps each tier free: client on Vercel, API on Render, database on Aiven"],
+ st:["Next.js","Node","Express","MySQL 8","Vercel + Render"]},
 
 {t:"f",n:"Launcher",s:"running",l:"Run a Windows laptop from an iPhone on the same Wi-Fi.",e:"private · :4000",
  d:"An Express server on the laptop and a PWA on the phone. The webcam streams as MJPEG through ffmpeg at roughly 15fps, the microphone streams alongside it, and there's a file browser, a process monitor, motion detection and server-side MP4 recording. It also works as a presentation clicker, which is what I actually use it for.",
