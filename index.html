@@ -345,17 +345,17 @@ footer{border-top:1px solid var(--rule-2);padding-block:22px 40px}
 
 <script>
 const P=[
-{t:"f",n:"The Atelier",s:"live",l:"Luxury fashion storefront, and the admin console behind it.",e:"theatelier-ta.com",url:"https://theatelier-ta.com",repo:"https://github.com/SalonChand/the-atelier",
+{t:"f",n:"The Atelier",s:"live",l:"Luxury fashion storefront, and the admin console behind it.",e:"theatelier-ta.com",url:"https://theatelier-ta.com",
  d:"A storefront on GitHub Pages with Firebase Realtime Database doing the work of a backend. The shop is the visible half; the admin console is the real project. It runs the order pipeline, prints packing slips with scannable QR codes in bulk, sorts customers into seven segments, and drives a campaign engine where a discount knows what scope it applies to.",
  k:["A 3D garment customiser with UV texture painting, so a buyer sees their own print on the piece before ordering","A weekly digest email that dedupes on ISO week, so a late run can\u2019t send the same summary twice","The dome gallery rebuilt in CSS 3D after Three.js proved too heavy on mid-range phones","Scope-aware discounts, so a campaign can\u2019t quietly stack itself onto the wrong products"],
  st:["JavaScript","Firebase RTDB","Three.js","GitHub Pages"]},
 
-{t:"f",n:"JD Marksheets",s:"running",l:"The school management system John Dewey H.S. runs on.",e:"private · :4100",repo:"https://github.com/SalonChand/JD-Marksheets",
+{t:"f",n:"JD Marksheets",s:"running",l:"The school management system John Dewey H.S. runs on.",e:"private · :4100",
  d:"Express 5 on Node\u2019s built-in SQLite, serving one application to five different kinds of user: admins, grade teachers, subject teachers, students and guardians each get their own portal, with strict per-role data isolation between them. Digital marksheets, class timetables, a notice board, multi-child linking for guardians with more than one child at the school, and a Today at School dashboard. Leave requests fall back to SMS through Sparrow SMS or Twilio when a guardian isn\u2019t in the app.",
  k:["An in-app notification inbox with unread badges, backed by an Android companion app whose foreground service and boot receiver keep alerts arriving after a restart","Installs as an offline-capable PWA on iOS and Android from the same codebase","Auto-starts on the school\u2019s Windows machine through a Scheduled Task, so nobody has to remember to launch it"],
  st:["Express 5","node:sqlite","PWA","Android"]},
 
-{t:"f",n:"Milan",s:"live",l:"A dating app specified in full before a line of it was written.",e:"milan-five-topaz.vercel.app",url:"https://milan-five-topaz.vercel.app",repo:"https://github.com/SalonChand/milan",
+{t:"f",n:"Milan",s:"live",l:"A dating app specified in full before a line of it was written.",e:"milan-five-topaz.vercel.app",url:"https://milan-five-topaz.vercel.app",
  d:"I wrote a 28-section technical specification for this before starting the build \u2014 schema, matching, messaging, safety and moderation \u2014 then worked through it in nine phases. React and Vite on the client, Express and Socket.IO behind it, MySQL through Prisma, WebRTC for video calls, and a separate React admin panel for moderation.",
  k:["Specifying it in full first meant the build was execution rather than invention, and the schema didn\u2019t need rewriting halfway through","Runs entirely on free tiers: Vercel for the client, Render for the API, Aiven for MySQL, Supabase for uploads","Socket.IO handles the WebRTC signalling, so chat and video share one connection"],
  st:["React","Vite","Express","Socket.IO","Prisma","MySQL","WebRTC"]},
@@ -370,17 +370,17 @@ const P=[
  k:["The QR generator resolves the phone-reachable host itself and refuses to print codes pointing at localhost — otherwise you only find out after the codes are on the tables","A version handshake banner, so a stale tab tells the waiter instead of silently failing"],
  st:["Node","Express","SQLite","Vanilla JS SPA"]},
 
-{t:"f",n:"LocalAid Nepal",s:"paused",l:"Community help requests, with an emergency SOS built in.",e:"in development",repo:"https://github.com/SalonChand/localaid-nepal",
+{t:"f",n:"LocalAid Nepal",s:"paused",l:"Community help requests, with an emergency SOS built in.",e:"in development",
  d:"React 19 and Vite on the front with Socket.io for live updates, Express 5, Sequelize and MySQL behind JWT auth. Anyone can post a help request and watch it get picked up; the SOS path skips the form entirely, because an emergency is the worst possible time to ask someone to fill in fields. Rebuilt mobile-first after testing on real phones \u2014 bottom tab bar, full-screen auth, a profile surface that doesn\u2019t assume a mouse.",
  k:["The API base URL resolves from the browser\u2019s own hostname, so one build works on the laptop and on a phone across the same Wi-Fi","Packaged for Google Play through PWABuilder, and prepared for iOS through Capacitor"],
  st:["React 19","Vite","Tailwind","Socket.IO","Express","MySQL"]},
 
-{t:"f",n:"Eco Tour Nepal",s:"paused",l:"Two marketplaces in one \u2014 tour bookings and handicraft sales.",e:"in development",repo:"https://github.com/SalonChand/eco-tour-nepal",
+{t:"f",n:"Eco Tour Nepal",s:"paused",l:"Two marketplaces in one \u2014 tour bookings and handicraft sales.",e:"in development",
  d:"A React and Vite front end over a Node, Express and MySQL API, running tour bookings and a handicraft shop side by side, with real-time community chat, direct messages and a helpdesk widget. The part I\u2019d actually point at, though, is the security pass I did afterwards.",
  k:["JWT authentication moved onto the Socket.io handshake, replacing module-level sockets that connected before anyone had logged in","Helmet, rate limiting and scoped CORS added across the API","Connection pooling, once it was clear that connections were the ceiling"],
  st:["React","Vite","Socket.IO","Express","MySQL"]},
 
-{t:"f",n:"Sangalo",s:"live",l:"A social platform, and the database migration that unblocked it.",e:"sangalo.vercel.app",url:"https://sangalo.vercel.app",repo:"https://github.com/SalonChand/sangalo",
+{t:"f",n:"Sangalo",s:"live",l:"A social platform, and the database migration that unblocked it.",e:"sangalo.vercel.app",url:"https://sangalo.vercel.app",
  d:"Next.js on the front, Node and Express behind it, MySQL 8 on Aiven. Feeds, profiles, posts and conversations, deployed across three services that each do one thing.",
  k:["The feed query leans on json_arrayagg and correlated derived tables, which MariaDB 10.4 simply doesn\u2019t support \u2014 I moved the database to MySQL 8 rather than rewriting the queries into something slower to work around it","Split deploy that keeps each tier free: client on Vercel, API on Render, database on Aiven"],
  st:["Next.js","Node","Express","MySQL 8","Vercel + Render"]},
@@ -392,7 +392,7 @@ const P=[
 
 {t:"c",n:"Pariwartan",s:"live",l:"Band site with a sourced discography of 13 releases and Devanagari typesetting.",e:"salonchand.github.io/pariwartan",url:"https://salonchand.github.io/pariwartan"},
 {t:"c",n:"Jacob Unisex Salon",s:"live",l:"Bookings with Firebase sync, plus an admin view of revenue per stylist.",e:"salonchand.github.io/Jacob-Unisex-Salon",url:"https://salonchand.github.io/Jacob-Unisex-Salon"},
-{t:"c",n:"John Dewey H.S.",s:"live",l:"Site for the school that also runs JD Marksheets, with an in-browser Python runner (Pyodide) and a published-content layer so staff can edit from any device.",e:"github.com/SalonChand/john-dewey-website",url:"https://github.com/SalonChand/john-dewey-website"},
+{t:"c",n:"John Dewey H.S.",s:"live",l:"Site for the school that also runs JD Marksheets, with an in-browser Python runner (Pyodide) and a published-content layer so staff can edit from any device.",e:"static site · 31 pages"},
 {t:"c",n:"Motorcycle HUD",s:"paused",l:"Raspberry Pi speed and navigation HUD, mirror-flipped for a helmet visor, streaming at 10Hz over WebSocket.",e:"hardware · Python"},
 {t:"c",n:"LAN File Manager",s:"running",l:"File manager PWA for the local network, pm2-managed so it comes back after a reboot.",e:"private · :4500"}
 ];
@@ -403,8 +403,7 @@ const st=s=>`<span class="status s-${s}"><i class="dot"></i>${LB[s]}</span>`;
 
 const board=document.getElementById("board");
 board.innerHTML=P.filter(p=>p.t==="f").map((p,i)=>{
-  const links=[p.url?`<a href="${p.url}" target="_blank" rel="noopener">Open site ↗</a>`:"",
-               p.repo?`<a href="${p.repo}" target="_blank" rel="noopener">Source ↗</a>`:""].filter(Boolean).join("");
+  const links=p.url?`<a href="${p.url}" target="_blank" rel="noopener">Open site ↗</a>`:"";
   return `<article class="row boot" style="--i:${i+7}">
     <button class="row-btn" aria-expanded="false">
       ${st(p.s)}
