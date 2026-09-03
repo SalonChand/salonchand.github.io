@@ -165,8 +165,8 @@ h1 em{font-style:italic;font-weight:500}
 .plinks a{font-family:"DM Mono",monospace;font-size:12.5px;letter-spacing:.02em}
 
 /* compact grid */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:1px;background:var(--rule-2);border:1px solid var(--rule-2);border-radius:8px;overflow:hidden}
-.cell{background:var(--paper);padding:22px 20px 20px;display:flex;flex-direction:column;gap:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:12px}
+.cell{background:var(--raise);border:1px solid var(--rule-2);border-radius:8px;padding:20px 18px 18px;display:flex;flex-direction:column;gap:8px}
 .cell .status{margin-bottom:2px}
 .cell h3{font-size:16px;font-weight:500;letter-spacing:-.01em}
 .cell p{color:var(--ink-2);font-size:14.5px;line-height:1.45;flex:1}
@@ -385,11 +385,9 @@ const P=[
  k:["WebRTC through MediaMTX worked beautifully until the laptop changed networks; MJPEG over the LAN was less elegant and more reliable, so it stayed","PIN gate that persists, because typing a PIN every time meant I stopped using it"],
  st:["Node","Express","ffmpeg","PWA"]},
 
-{t:"c",n:"Train With Mausam",s:"live",l:"Personal training site on a monochrome card system. Built for my brother.",e:"trainwithmausam.com",url:"https://trainwithmausam.com"},
 {t:"c",n:"Pariwartan",s:"live",l:"Band site with a sourced discography of 13 releases and Devanagari typesetting.",e:"salonchand.github.io/pariwartan",url:"https://salonchand.github.io/pariwartan"},
 {t:"c",n:"Jacob Unisex Salon",s:"live",l:"Bookings with Firebase sync, plus an admin view of revenue per stylist.",e:"salonchand.github.io/Jacob-Unisex-Salon",url:"https://salonchand.github.io/Jacob-Unisex-Salon"},
 {t:"c",n:"John Dewey H.S.",s:"live",l:"Site for the school that also runs JD Marksheets, with an in-browser Python runner (Pyodide) and a published-content layer so staff can edit from any device.",e:"github.com/SalonChand/john-dewey-website",url:"https://github.com/SalonChand/john-dewey-website"},
-{t:"c",n:"VAAV Wellbeing",s:"live",l:"Single-file wellbeing site — glass header, breathing orb hero, no build step at all.",e:"static site"},
 {t:"c",n:"Motorcycle HUD",s:"paused",l:"Raspberry Pi speed and navigation HUD, mirror-flipped for a helmet visor, streaming at 10Hz over WebSocket.",e:"hardware · Python"},
 {t:"c",n:"LAN File Manager",s:"running",l:"File manager PWA for the local network, pm2-managed so it comes back after a reboot.",e:"private · :4500"}
 ];
